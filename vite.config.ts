@@ -8,6 +8,6 @@ export default defineConfig({
   },
 
   nitro: {
-    preset: "vercel",
+    preset: "cloudflare-pages",
   },
 });
