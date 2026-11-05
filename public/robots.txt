@@ -10,5 +10,14 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: SkypeUriPreview
+Allow: /
+
+User-agent: SkypeTeamsBot
+Allow: /
+
+User-agent: Microsoft-Teams-URL-Preview
+Allow: /
+
 User-agent: *
 Allow: /
