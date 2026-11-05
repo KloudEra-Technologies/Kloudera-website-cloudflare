@@ -91,20 +91,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Enterprise cybersecurity consulting, 24/7 SOC, AI compute rigs, and Microsoft Cloud governance by KloudEra Technologies.",
       },
       { name: "author", content: "KloudEra Technologies" },
-      { property: "og:title", content: "KloudEra Technologies" },
+      { property: "og:site_name", content: "KloudEra Technologies" },
+      { property: "og:title", content: "KloudEra Technologies — Zero-Trust Cybersecurity & Cloud" },
       {
         property: "og:description",
         content:
-          "Architecting zero-trust digital enterprises: SOC, VAPT, cloud, AI CoE and next-gen hardware.",
+          "Enterprise cybersecurity consulting, 24/7 SOC, AI compute rigs, and Microsoft Cloud governance by KloudEra Technologies.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.kloudera.ai/" },
+      { property: "og:image", content: "https://www.kloudera.ai/og-image.png" },
+      { property: "og:image:secure_url", content: "https://www.kloudera.ai/og-image.png" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "KloudEra Technologies Logo & Brand" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@klouderatech" },
+      { name: "twitter:title", content: "KloudEra Technologies — Zero-Trust Cybersecurity & Cloud" },
+      {
+        name: "twitter:description",
+        content:
+          "Enterprise cybersecurity consulting, 24/7 SOC, AI compute rigs, and Microsoft Cloud governance by KloudEra Technologies.",
+      },
+      { name: "twitter:image", content: "https://www.kloudera.ai/og-image.png" },
+      { name: "twitter:image:alt", content: "KloudEra Technologies Logo & Brand" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "canonical", href: "https://www.kloudera.ai/" },
+      { rel: "image_src", href: "https://www.kloudera.ai/og-image.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

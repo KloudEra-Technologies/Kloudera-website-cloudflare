@@ -30,12 +30,29 @@ export const Route = createFileRoute("/")({
         content:
           "Enterprise cybersecurity consulting: 24/7 SOC, VAPT, multi-cloud governance, AI CoE and next-gen GPU hardware for Fortune 500 infrastructure.",
       },
+      { property: "og:site_name", content: "KloudEra Technologies" },
       { property: "og:title", content: "KloudEra Technologies — Zero-Trust Enterprises" },
       {
         property: "og:description",
         content:
           "24/7 Security Operations, AI compute rigs, and Microsoft Cloud governance for high-stakes enterprises.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.kloudera.ai/" },
+      { property: "og:image", content: "https://www.kloudera.ai/og-image.png" },
+      { property: "og:image:secure_url", content: "https://www.kloudera.ai/og-image.png" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "KloudEra Technologies Logo & Brand" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "KloudEra Technologies — Zero-Trust Enterprises" },
+      {
+        name: "twitter:description",
+        content:
+          "24/7 Security Operations, AI compute rigs, and Microsoft Cloud governance for high-stakes enterprises.",
+      },
+      { name: "twitter:image", content: "https://www.kloudera.ai/og-image.png" },
     ],
   }),
   component: Home,
