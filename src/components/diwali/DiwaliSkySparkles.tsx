@@ -128,26 +128,37 @@ export function DiwaliSkySparkles({
       });
     }
 
-    if (triggerBurstRef) {
-      triggerBurstRef.current = () => {
-        launchRocket(width * 0.4, height * 0.22);
+    // Helper to launch a volley of multiple rockets across the sky
+    function launchSalvo() {
+      if (document.hidden) return;
+
+      // Launch 2 to 4 rockets together
+      const count = 2 + Math.floor(Math.random() * 3); // 2, 3, or 4 rockets
+      const step = 0.65 / (count + 1);
+
+      for (let i = 0; i < count; i++) {
+        const stagger = i * (80 + Math.random() * 110);
+        const targetSectorX = width * (0.18 + step * (i + 1) + (Math.random() - 0.5) * 0.1);
+        const targetSectorY = height * (0.13 + Math.random() * 0.22);
+
         setTimeout(() => {
-          launchRocket(width * 0.6, height * 0.25);
-        }, 200);
-      };
+          if (!document.hidden) {
+            launchRocket(targetSectorX, targetSectorY);
+          }
+        }, stagger);
+      }
     }
 
     // AUTHENTIC GOLDEN FIRECRACKER SPARK SHOWER (Zari Kamuro / Weeping Gold Rain)
     function burstRocket(r: SkyRocket) {
       // Golden firecracker sparks: incandescent golden and white sparks
-      const sparkCount = 80 + Math.floor(Math.random() * 35);
+      const sparkCount = 75 + Math.floor(Math.random() * 30);
 
       // Gold flame palette for authentic burning gunpowder
       const goldTones = ["#FFF8E7", "#FFE066", "#FFD700", "#FFB703", "#FB8500"];
 
       for (let i = 0; i < sparkCount; i++) {
         const angle = Math.random() * Math.PI * 2;
-        // Layered velocities so sparks form natural arching plumes rather than a solid ring
         const speed = Math.random() * 6.5 + 1.2;
         const color = goldTones[Math.floor(Math.random() * goldTones.length)];
 
@@ -155,21 +166,21 @@ export function DiwaliSkySparkles({
           x: r.x,
           y: r.y,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.5, // initial slight upward kick
+          vy: Math.sin(angle) * speed - 0.5,
           trail: [],
           alpha: 1,
-          decay: 0.009 + Math.random() * 0.008, // long-hanging golden rain (~2 seconds)
+          decay: 0.009 + Math.random() * 0.008,
           color,
           twinklePhase: Math.random() * Math.PI * 2,
           twinkleSpeed: 0.25 + Math.random() * 0.35,
-          gravity: 0.085 + Math.random() * 0.03, // gravity pulls sparks into weeping golden rain
-          drag: 0.965, // smooth air drag
-          crackles: Math.random() > 0.4, // crackles micro-sparks as it falls
+          gravity: 0.085 + Math.random() * 0.03,
+          drag: 0.965,
+          crackles: Math.random() > 0.4,
         });
       }
 
       // Center crackler burst (instant snapping white-gold micro-crackles)
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 25; i++) {
         const angle = Math.random() * Math.PI * 2;
         const speed = Math.random() * 4.5 + 0.8;
         crackles.push({
@@ -185,22 +196,26 @@ export function DiwaliSkySparkles({
       }
     }
 
-    // Schedule launches every 2.8s - 4.5s
+    if (triggerBurstRef) {
+      triggerBurstRef.current = () => {
+        launchSalvo();
+      };
+    }
+
+    // Schedule multi-rocket salvos frequently (every 1.5s to 2.6s)
     let fireworkTimer: NodeJS.Timeout | null = null;
     function scheduleNextCelebration() {
-      const delay = 2600 + Math.random() * 1800;
+      const delay = 1500 + Math.random() * 1100;
       fireworkTimer = setTimeout(() => {
-        if (!document.hidden) {
-          launchRocket();
-        }
+        launchSalvo();
         scheduleNextCelebration();
       }, delay);
     }
 
     const initialTimer = setTimeout(() => {
-      launchRocket();
+      launchSalvo();
       scheduleNextCelebration();
-    }, 600);
+    }, 300);
 
     let animationFrameId: number;
 

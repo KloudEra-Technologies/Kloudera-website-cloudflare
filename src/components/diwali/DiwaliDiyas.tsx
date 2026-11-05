@@ -4,7 +4,7 @@ import React from "react";
  * Single ornate clay Diya (Deepak) with multi-layer animated flame & ambient glow
  */
 export function SingleDiya({
-  size = 52,
+  size = 84,
   className = "",
   onClick,
 }: {
@@ -18,20 +18,30 @@ export function SingleDiya({
       role="button"
       tabIndex={0}
       title="Shubh Deepavali! Click to celebrate ✨"
-      className={`relative inline-block cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95 ${className}`}
+      className={`relative inline-block cursor-pointer transition-all duration-300 hover:scale-110 hover:brightness-110 active:scale-95 ${className}`}
       style={{ width: size, height: size * 0.85 }}
     >
-      {/* Warm Ambient Pulsing Glow */}
+      {/* Warm Ambient Pulsing Golden Radiance */}
       <div
-        className="pointer-events-none absolute -inset-3 rounded-full opacity-65 blur-lg animate-pulse"
+        className="pointer-events-none absolute -inset-6 rounded-full opacity-75 blur-xl animate-pulse"
         style={{
-          background: "radial-gradient(circle, rgba(255, 183, 3, 0.55) 0%, rgba(251, 133, 0, 0.25) 50%, transparent 80%)",
+          background:
+            "radial-gradient(circle, rgba(255, 183, 3, 0.65) 0%, rgba(251, 133, 0, 0.32) 48%, transparent 78%)",
+        }}
+      />
+
+      {/* Secondary Soft Outer Aura */}
+      <div
+        className="pointer-events-none absolute -inset-10 rounded-full opacity-40 blur-2xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255, 140, 0, 0.4) 0%, transparent 70%)",
         }}
       />
 
       <svg
         viewBox="0 0 100 85"
-        className="relative z-10 w-full h-full drop-shadow-[0_4px_12px_rgba(245,158,11,0.5)]"
+        className="relative z-10 w-full h-full drop-shadow-[0_6px_20px_rgba(245,158,11,0.65)]"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -73,7 +83,7 @@ export function SingleDiya({
             d="M 50 4 C 42 16 38 24 38 34 C 38 42 43 46 50 46 C 57 46 62 42 62 34 C 62 24 58 16 50 4 Z"
             fill="url(#flameOuter)"
             opacity="0.9"
-            filter="drop-shadow(0 0 6px rgba(255,100,0,0.8))"
+            filter="drop-shadow(0 0 8px rgba(255,110,0,0.85))"
           />
 
           {/* Inner Golden Core */}
@@ -129,14 +139,14 @@ export function SingleDiya({
 }
 
 /**
- * DiwaliDiyas - Traditional earthen lamp in bottom corner
+ * DiwaliDiyas - Traditional prominent earthen lamp in bottom-left corner
  */
 export function DiwaliDiyas({ onSparkleRequest }: { onSparkleRequest?: () => void }) {
   return (
     <>
-      {/* Bottom-Left Traditional Earthen Diya (clean lamp without box/popover) */}
-      <div className="fixed bottom-5 left-5 z-40 select-none">
-        <SingleDiya size={54} onClick={onSparkleRequest} />
+      {/* Bottom-Left Prominent Earthen Diya (Larger & Eye-Catching) */}
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 select-none">
+        <SingleDiya size={84} onClick={onSparkleRequest} />
       </div>
 
       {/* Flame & Garland CSS Animations */}
