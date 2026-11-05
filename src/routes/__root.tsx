@@ -17,6 +17,7 @@ import { Toaster } from "../components/ui/sonner";
 import Ferrofluid from "../components/ui/Ferrofluid";
 import GradualBlur from "../components/ui/GradualBlur";
 import { KlouderaChatbot } from "../components/site/KlouderaChatbot";
+import { DiwaliRockets } from "../components/ui/DiwaliRockets";
 
 function NotFoundComponent() {
   return (
@@ -175,6 +176,7 @@ function RootComponent() {
           zIndex={20}
         />
         <Toaster />
+        <DiwaliRockets />
         <KlouderaChatbot />
       </div>
     </QueryClientProvider>
