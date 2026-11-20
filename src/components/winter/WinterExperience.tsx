@@ -6,16 +6,17 @@ import { WinterCornerFrost } from "./WinterCornerFrost";
 import { WinterSnowfall } from "./WinterSnowfall";
 import { WinterPineTrees } from "./WinterPineTrees";
 import { WinterSnowman } from "./WinterSnowman";
+import { WinterSnowLandscape } from "./WinterSnowLandscape";
 
 /**
  * WinterExperience - Complete Winter Wonderland ambiance for KloudEra Technologies:
- * 1. Geometric Frozen Ice Crystals & Stellar Dendrites drifting down (high-DPI canvas).
- * 2. Crystalline Icicle fringe along top edge.
- * 3. Hanging 3D Snowflake ornaments swaying gracefully from the header.
- * 4. Translucent frost ferns framing the top window corners.
- * 5. Snowy evergreen pine trees with snow pillows and fairy lights in bottom-left.
- * 6. Interactive cheerful snowman with knit scarf, top hat, tap flurry & winter greetings.
- * 7. Soft bottom snowbank drift glow and frosty glass enhancements.
+ * 1. Gentle natural white snowfall drifting across screen (canvas 60fps).
+ * 2. Crystalline Icicles along top edge.
+ * 3. Hanging silver snowflake ornaments swaying from the header.
+ * 4. Translucent windowpane frost ferns in corners.
+ * 5. Multi-layer rolling snow landscape dunes across bottom of the screen.
+ * 6. Snowy evergreen pine trees nestled in the snowbank.
+ * 7. Interactive cheerful snowman with scarf, hat, tap flurry & winter greeting.
  */
 export function WinterExperience() {
   const triggerFlurryRef = useRef<(() => void) | null>(null);
@@ -41,20 +42,17 @@ export function WinterExperience() {
       {/* 4. Translucent Frosted Window Ferns in Corners */}
       <WinterCornerFrost />
 
-      {/* 5. Falling Frozen Snow & Geometric Ice Crystals (Stellar Dendrites, Ice Plates, Stars) */}
+      {/* 5. Falling Pure White Snowflakes with Natural Wind Drift */}
       <WinterSnowfall triggerFlurryRef={triggerFlurryRef} />
 
-      {/* 6. Snowy Evergreen Pine Trees at Bottom-Left */}
+      {/* 6. Multi-layer Rolling Snow Landscape along Bottom of Screen */}
+      <WinterSnowLandscape />
+
+      {/* 7. Snowy Evergreen Pine Trees at Bottom-Left */}
       <WinterPineTrees />
 
-      {/* 7. Interactive Winter Snowman with Scarf, Hat & Flurry Trigger */}
+      {/* 8. Interactive Winter Snowman with Scarf, Hat & Flurry Trigger */}
       <WinterSnowman onFlurryRequest={handleFlurryRequest} />
-
-      {/* 8. Soft Bottom Frost Bank / Snow Drift Glow */}
-      <div
-        className="pointer-events-none fixed bottom-0 left-0 right-0 h-12 z-20 opacity-50 bg-gradient-to-t from-sky-300/15 via-sky-400/5 to-transparent"
-        aria-hidden="true"
-      />
 
       {/* 9. Winter Themed Atmospheric CSS Enhancements */}
       <style>{`
